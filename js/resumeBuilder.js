@@ -4,15 +4,15 @@ This is empty on purpose! Your code to build the resume will go here.
 var work = {
 	"jobs" : [
 		{
-			"employer" : "No",
-			"title" : "No",
+			"employer" : "Whaat Whaat",
+			"title" : "TABASD",
 			"location" : "No",
 			"dates" : "No",
 			"desciption" : "No"
 		},
 		{
-			"employer" : "No",
-			"title" : "No",
+			"employer" : "HEEEEl",
+			"title" : "BAGDDF",
 			"location" : "No",
 			"dates" : "No",
 			"desciption" : "No"
@@ -80,4 +80,32 @@ var education = {
 			"url" : "https://www.udacity.com/course/how-to-use-git-and-github--ud775"
 		}
 	]
+}
+
+if (bio.skills.length>0)
+{
+	$("#header").append(HTMLskillsStart);
+	var formattedSkills = HTMLskills.replace("%data%", bio.skills[0])
+	$("#skills").append(formattedSkills);
+	var formattedSkills = HTMLskills.replace("%data%", bio.skills[1])
+	$("#skills").append(formattedSkills);
+	var formattedSkills = HTMLskills.replace("%data%", bio.skills[2])
+	$("#skills").append(formattedSkills);
+	var formattedSkills = HTMLskills.replace("%data%", bio.skills[3])
+	$("#skills").append(formattedSkills);
+	var formattedSkills = HTMLskills.replace("%data%", bio.skills[4])
+	$("#skills").append(formattedSkills);
+}
+
+for (jobdetail in work.jobs)
+{
+
+	$("#workExperience").append(HTMLworkStart);
+	var formattedWorkEmployer, formattedWorkTitle;
+	if (work.jobs.hasOwnProperty(jobdetail)) {
+		formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work.jobs[jobdetail].employer);
+			formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[jobdetail].title)
+		var formattedEmplyreTitle = formattedWorkEmployer + formattedWorkTitle;
+		$(".work-entry:last").append(formattedEmplyreTitle);
+	}
 }
